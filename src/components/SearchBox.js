@@ -1,18 +1,14 @@
 import React from 'react';
+import './SearchBox.styles.css';
 
-/* function Searcbox({SearchChange}) {
-    return...
-}*/
-const SearchBox = ({ SearchChange }) => {
+const SearchBox = ({ handleChange, placeholder }) => {
     return (
-        <div className='pa2'>
-            <input 
-                className='pa3 ba b-- green bg-lightest-blue' 
-                type='search' 
-                placeholder='search robots'
-                onChange={SearchChange}
-            />
-        </div>
+        <input 
+            className='search' 
+            type='search' 
+            placeholder={placeholder}
+            onChange={handleChange}
+        />
     )
 }
 

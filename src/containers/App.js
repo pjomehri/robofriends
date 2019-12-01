@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import { robots } from './robots';
 import CardsList from '../components/CardsList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import './App.css';
 
 class App extends Component {
     constructor(){
@@ -18,10 +18,6 @@ class App extends Component {
         .then(response => response.json())
         .then(users => this.setState({ robots: users }))
     }
- 
-    onSearcChange = (event) => {
-        this.setState({ SearchField: event.target.value })
-    }
 
     render(){
         const filterRobots = this.state.robots.filter(robot => {
@@ -29,8 +25,11 @@ class App extends Component {
         })
         return (
             <div className='tc'>
-                <h1>RoboFriends</h1>
-                <SearchBox SearchField={this.state.SearchField} SearchChange={this.onSearcChange}/>
+                <h1>Monsters Rolodex</h1>
+                <SearchBox 
+                    handleChange={e => this.setState({ SearchField: e.target.value }) } 
+                    placeholder='search monsters'
+                />
                 <Scroll>
                     <CardsList robots={filterRobots}/>
                 </Scroll>

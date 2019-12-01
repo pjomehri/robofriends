@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Cards from './Cards';
+import './CardsList.styles.css';
 
 const CardsList = ({ robots }) => {
     return (
-        <Fragment>
+        <div className="card-list">
         {
             robots.map((robot, i)=> {
                 return  (
@@ -16,7 +17,7 @@ const CardsList = ({ robots }) => {
                 );
             })
         }      
-        </Fragment>
+        </div>
     );
 }
 
